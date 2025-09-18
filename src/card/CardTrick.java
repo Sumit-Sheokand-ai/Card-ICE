@@ -27,35 +27,8 @@ public class CardTrick {
             magicHand[i] = c;
         }
         
-        // add one lucky card hard coded 2, clubs
-        Card luckyCard = new Card();
-        luckyCard.setValue(2);
-        luckyCard.setSuit("clubs");
-        magicHand[0] = luckyCard;
-        
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter card value (1-13): ");
-        int userValue = input.nextInt();
-        System.out.print("Enter suit (hearts, diamonds, clubs, spades): ");
-        String userSuit = input.next();
-        
-        Card userCard = new Card();
-        userCard.setValue(userValue);
-        userCard.setSuit(userSuit);
-        
-        boolean found = false;
-        for (int i = 0; i < magicHand.length; i++) {
-            if (magicHand[i].getValue() == userCard.getValue() && 
-                magicHand[i].getSuit().equals(userCard.getSuit())) {
-                found = true;
-                break;
-            }
-        }
-        
-        if (found) {
-            System.out.println("Your card is in the magic hand!");
-        } else {
-            System.out.println("Your card is not in the magic hand.");
-        }
+        // instead of asking the user for input:
+        Card luckyCard = new Card(7, "Hearts");  // hard-coded lucky card
+        System.out.println("Your lucky card is: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
     }
 }
